@@ -143,7 +143,7 @@ h4, .h4 {
 }
 @media (min-width: 1200px) {
   h4, .h4 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -11593,7 +11593,7 @@ body {
 
 .about-section {
   padding-top: 10rem;
-  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 65%, rgba(0, 0, 0, 0.8) 100%);
 }
 .about-section p {
   margin-bottom: 5rem;
@@ -11685,3 +11685,169 @@ body {
 .footer {
   padding: 5rem 0;
 }
+
+.image-cover-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  transition: opacity ease 0.3s;
+  pointer-events: none;
+}
+
+.model-shown {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.image-cover-modal-content {
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#image-cover-caption {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3rem;
+  bottom: 0;
+  line-height: 3rem;
+  text-align: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.33);
+}
+
+@media only screen and (max-width: 45rem){
+  .image-cover-modal-content {
+      max-width: 100%;
+      max-height: 100%;
+  }
+}
+
+/* album style */
+*{margin: 0;padding: 0;}
+		.album-container{height: 100%;}
+		.album-container-box{
+			
+			display: flex;
+			
+			perspective: 800px;
+			transform-style: preserve-3d;
+			background-color: transparent;
+			height:100%;
+			width: 100%;
+		}
+		#box{
+			position: relative;
+			display: flex;
+			width: 200px;
+			height: 250px;
+			margin: 10px;
+			transform-style: preserve-3d; 
+			transform: rotateX(-2deg);
+		}
+		#box > div{
+			transform-style: preserve-3d; 
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			line-height: 200px;
+			font-size: 50px;
+			text-align: center;
+			box-shadow:0 0 10px #aecff2;
+			/* -webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 40%,rgba(0,0,0,.8) 100%); */
+		}
+		/*  #box > div:nth-child(1){
+					background: skyblue;
+					transform: translate3d(0,0,300px) rotateY(45deg);
+				}
+				#box > div:nth-child(2){
+					background: pink;
+					transform: rotateY(0deg);
+				}
+				#box > div:nth-child(3){
+					background: purple;
+					transform: translate3d(0,0,300px) rotateY(-45deg);
+				} 
+		*/
+		#box p{
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			width: 2200px;
+			height: 2200px;
+			/* background: -webkit-radial-gradient(center center,600px 600px,rgba(50,50,50,1),rgba(0,0,0,0)); */
+			border-radius: 50%;
+			transform: rotateX(90deg) translate3d(-600px,0,-105px);
+		}
+
+
+  /*Album rotate*/
+
+  .Container{ 
+    margin: 4% auto; 
+    width: 210px; 
+    height: 350px; 
+    position: relative; 
+    perspective: 1000px; 
+} 
+#carousel{ 
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    transform-style:preserve-3d; 
+    animation: rotation 150s infinite linear; 
+} 
+#carousel:hover{ 
+    animation-play-state: paused; 
+} 
+#carousel figure{ 
+  display: block;
+    position: absolute; 
+    width: 130px; 
+    height: 200px; 
+    left: 10px; 
+    top: 10px; 
+    background: black; 
+    overflow: hidden; 
+    
+} 
+img{ 
+    cursor: pointer; 
+    transition:all 1000s ease 0s; 
+    width: 100%; 
+    height: 100%; 
+} 
+/* img:hover{ 
+  transform: scale(2.5) 
+}  */
+#carousel figure:nth-child(1){transform: rotateY(0deg) translateZ(288px);} 
+#carousel figure:nth-child(2) { transform: rotateY(60deg) translateZ(288px);} 
+#carousel figure:nth-child(3) { transform: rotateY(120deg) translateZ(288px);} 
+#carousel figure:nth-child(4) { transform: rotateY(180deg) translateZ(288px);} 
+#carousel figure:nth-child(5) { transform: rotateY(240deg) translateZ(288px);} 
+#carousel figure:nth-child(6) { transform: rotateY(300deg) translateZ(288px);} 
+
+@keyframes rotation{ 
+    from{ 
+        transform: rotateY(0deg); 
+    } 
+    to{ 
+        transform: rotateY(360deg); 
+    } 
+} 
